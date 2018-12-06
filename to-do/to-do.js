@@ -2,6 +2,14 @@ const fs = require('fs');
 
 let toDoList = [];
 
+const loadDB = () => {
+    try {
+        toDoList = require('../db/data.json');
+    } catch (error) {
+        toDoList = [];
+    }
+}
+
 const saveDB = () => {
     let data = JSON.stringify(toDoList);
     fs.writeFile('db/data.json', data, (err) => {
@@ -10,6 +18,8 @@ const saveDB = () => {
 }
 
 let create = (description) => {
+
+    loadDB();
     let toDoTask = {
         description,
         completed: false,
