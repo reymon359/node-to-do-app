@@ -3,8 +3,8 @@
 const argv = require('yargs')
     .command('create', 'Creates a task', {
         description: {
-            demand: true,
-            alias: 'd',
+            demand: true, //this means it is required
+            alias: 'd', //a shorter version of the command
             desc: 'Task description'
         }
     })

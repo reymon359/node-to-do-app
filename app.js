@@ -1,5 +1,7 @@
 //requireds
 const argv = require('./config/yargs').argv;
+const colors = require('colors');
+
 const toDo = require('./to-do/to-do');
 
 let command = argv._[0];
@@ -12,7 +14,15 @@ switch (command) {
         break;
 
     case 'list':
-        console.log('Shows all the tasks');
+        let toDoList = toDo.getList();
+        for (let task of toDoList) {
+            console.log('=========To Do========='.green);
+            console.log(task.description);
+            console.log('Status: ', task.completed);
+            console.log('======================='.green);
+
+
+        }
         break;
 
     case 'update':
