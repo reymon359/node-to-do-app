@@ -26,7 +26,7 @@ switch (command) {
     case 'update':
         let updated = toDo.update(argv.description, argv.c);
         if (updated) {
-            console.log(`The status of the task`, colors.green(argv.description), `, has been updated to `, colors.green(argv.c));
+            console.log(`The completed status of the task`, colors.green(argv.description), `, has been updated to `, colors.green(argv.c));
         } else {
             console.log(`The task ${argv.description} couldnt be updated. It may don´t exist`.bgRed);
         }
