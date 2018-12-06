@@ -52,8 +52,28 @@ const update = (description, completed = true) => {
         return false;
     }
 }
+
+
+//deletes a task.
+const remove = (description) => {
+    loadDB();
+    //filter returns a new array without the dbTask that matches the description
+    let newToDoList = toDoList.filter(task => {
+        return task.description !== description;
+    });
+    //if the lenght of the new list is the same as the old one, the task was not removed
+    if (toDoList.length === newToDoList.length) {
+        return false;
+    } else {
+        toDoList = newToDoList;
+        saveDB();
+        return true;
+    }
+}
+
 module.exports = {
     create,
     getList,
-    update
+    update,
+    remove
 }

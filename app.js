@@ -20,8 +20,6 @@ switch (command) {
             console.log(task.description);
             console.log('Status: ', task.completed);
             console.log('======================='.green);
-
-
         }
         break;
 
@@ -34,6 +32,14 @@ switch (command) {
         }
         break;
 
+    case 'remove':
+        let removed = toDo.remove(argv.description);
+        if (removed) {
+            console.log(`The task`, colors.green(argv.description), `, was successfully removed`);
+        } else {
+            console.log(`The task ${argv.description} couldnt be removed. Maybe does not exist`.bgRed);
+        }
+        break;
     default:
         console.log('Command not valid');
 }

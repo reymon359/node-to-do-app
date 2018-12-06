@@ -17,7 +17,14 @@ const argv = require('yargs')
         done: {
             default: true,
             alias: 'c',
-            desc: 'Updates the task to done or not'
+            desc: 'Updates the task to completed or not'
+        }
+    })
+    .command('remove', 'Removes a task', {
+        description: {
+            demand: true,
+            alias: 'd',
+            desc: 'Task description'
         }
     })
     .help()
