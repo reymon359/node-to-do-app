@@ -38,7 +38,22 @@ const getList = () => {
     return toDoList;
 }
 
+//updates a task. By default updates completed to true
+const update = (description, completed = true) => {
+    loadDB();
+    //index will be the index of the dbTask wich description matches the one from params
+    let index = toDoList.findIndex(tarea => tarea.description === description);
+    //if not found, findIndex returns -1
+    if (index >= 0) {
+        toDoList[index].completed = completed;
+        saveDB();
+        return true;
+    } else {
+        return false;
+    }
+}
 module.exports = {
     create,
-    getList
+    getList,
+    update
 }
