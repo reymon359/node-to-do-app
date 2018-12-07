@@ -11,6 +11,7 @@ npm install
 ```
 
 Then here are the rest of the commands to use the app:
+
 -To create a new task
 ```
 node app create -description appDescription 
